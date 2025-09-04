@@ -1,5 +1,4 @@
 <template>
-  <!-- ================= Header ================= -->
   <header
     :class="[
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
@@ -8,9 +7,9 @@
   >
     <div class="max-w-6xl mx-auto flex h-16 items-center justify-between px-6">
 
-      <div class="flex items-center space-x-2">
-        <div class="h-8 w-8 rounded-lg bg-primary"></div>
-        <span class="font-bold text-lg">GeoQuest</span>
+      <div class="flex flex-row items-center">
+        <img src="/geoQuest.png" alt="GeoQuest Logo" class="max-w-4 max-h-4 object-contain" />
+        <span class="ml-2 font-bold text-lg">GeoQuest</span>
       </div>
 
       <nav class="hidden md:flex space-x-8">

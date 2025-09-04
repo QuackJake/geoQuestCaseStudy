@@ -1,29 +1,34 @@
 <template>
-  <!-- ================= Process Section ================= -->
-  <section id="userTesting" class="py-16 px-6">
+  <!-- ================= User Testing Section ================= -->
+  <section id="userTesting" class="py-16 px-6 bg-muted/5">
     <div class="max-w-6xl mx-auto">
 
       <!-- ===== Title ===== -->
-      <h2 class="text-4xl font-bold text-primary mb-12 text-center">
-        User Testing Conclusions
+      <h2 class="my-16 text-4xl font-bold text-primary text-center">
+        User Testing & Implementation
       </h2>
 
-      <!-- ===== Steps ===== -->
-      <div class="space-y-12">
+      <!-- ===== Introduction / Testing Goal ===== -->
+      <div class="flex flex-col justify-center text-center max-w-3xl mx-auto">
+        <p class="text-muted-foreground leading-relaxed">
+          Our usability testing plan was designed to gather genuine, comprehensive feedback from diverse users. 
+          By keeping instructions vague and open-ended, we encouraged participants to explore freely, describe their interpretations, and highlight pain points.
+        </p>
+      </div>
+
+      <!-- ===== Testing Process Steps ===== -->
+      <div>
         <div
           v-for="(step, index) in processSteps"
           :key="step.title"
           :class="[
-            'flex flex-col md:flex-row items-center gap-8',
+            'flex flex-col md:flex-row items-center gap-8 min-h-[50vh]',
             index % 2 === 1 ? 'md:flex-row-reverse' : ''
           ]"
         >
           <!-- Step Content -->
-          <div class="flex-1">
+          <div class="flex-1 flex flex-col justify-center">
             <div class="flex items-center mb-4">
-              <span class="bg-accent text-accent-foreground w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">
-                {{ index + 1 }}
-              </span>
               <h3 class="text-2xl font-semibold text-foreground">
                 {{ step.title }}
               </h3>
@@ -32,7 +37,7 @@
               {{ step.description }}
             </p>
 
-            <!-- Deliverables -->
+            <!-- Deliverables / Key Artifacts -->
             <ul class="space-y-2">
               <li
                 v-for="deliverable in step.deliverables"
@@ -46,8 +51,8 @@
           </div>
 
           <!-- Step Visual -->
-          <div class="flex-1">
-            <div class="bg-muted/50 rounded-lg p-8 text-center">
+          <div class="flex-1 flex flex-col justify-center">
+            <div class="bg-muted/50 rounded-lg p-8 text-center h-full flex flex-col justify-center">
               <img
                 :src="step.image || placeholder"
                 :alt="step.title"
@@ -61,15 +66,42 @@
         </div>
       </div>
 
+      <!-- ===== Key Insights & Implemented Changes Side-by-Side ===== -->
+      <div class="mt-12 flex flex-col md:flex-row gap-12">
+        
+        <!-- Key User Insights -->
+        <div class="flex-1 flex flex-col justify-start">
+          <h3 class="text-3xl font-semibold text-primary mb-6 text-center md:text-left">
+            Key Insights from Testing
+          </h3>
+          <ul class="space-y-4 text-muted-foreground">
+            <li>Users expressed confusion over certain UI elements like "hamburger" menu, "coins", and camera icon.</li>
+            <li>Open-ended walkthroughs prompted detailed screen descriptions and interpretations, highlighting usability issues.</li>
+            <li>Participants provided concrete suggestions, such as adding a dedicated "find quests around you" button.</li>
+            <li>Diverse user roles ensured feedback captured a broad spectrum of perspectives.</li>
+          </ul>
+        </div>
+
+        <!-- Implemented Changes -->
+        <div class="flex-1 flex flex-col justify-start">
+          <h3 class="text-3xl font-semibold text-primary mb-6 text-center md:text-left">
+            How Feedback Shaped the Design
+          </h3>
+          <p class="text-muted-foreground leading-relaxed">
+            Insights from testing guided refinements to navigation, labeling, and quest discovery features. 
+            Confusing icons were clarified, and screens were adjusted to better align with user expectations, ensuring a smoother and more intuitive app experience.
+          </p>
+        </div>
+
+      </div>
+
     </div>
   </section>
 </template>
 
 <script setup>
-/* ================= Imports ================= */
-import placeholder from '../assets/placeholder.jpg'
-
-/* ================= Local Data ================= */
+import placeholder from '../assets/taylorSS.png'
+import notebookLM from '../assets/notebookLM.png'
 const processSteps = [
   {
     title: 'Research',
@@ -77,31 +109,15 @@ const processSteps = [
       'Gathered insights through user interviews, competitive analysis, and surveys to identify core user needs and pain points.',
     deliverables: ['User Personas', 'Survey Results', 'Competitive Analysis'],
     image: placeholder,
-    visualDescription: 'Research artifacts and findings'
+    visualDescription: 'Usability Test Recordings'
   },
   {
     title: 'Ideation',
     description:
       'Brainstormed multiple design directions and mapped out user flows to ensure alignment with user goals and business objectives.',
     deliverables: ['Storyboards', 'User Flows', 'Sketches'],
-    image: placeholder,
-    visualDescription: 'Concept sketches and flows'
-  },
-  {
-    title: 'Prototyping',
-    description:
-      'Built interactive wireframes and low-fidelity prototypes to validate ideas early with stakeholders and users.',
-    deliverables: ['Wireframes', 'Low-fi Prototype'],
-    image: placeholder,
-    visualDescription: 'Wireframe examples'
-  },
-  {
-    title: 'Testing',
-    description:
-      'Conducted usability tests to refine interactions, address usability issues, and improve overall user satisfaction.',
-    deliverables: ['Usability Findings', 'Refined Flows'],
-    image: placeholder,
-    visualDescription: 'Testing session highlights'
+    image: notebookLM,
+    visualDescription: 'LLM-Assisted Ideation (NotebookLM)'
   }
 ]
 </script>
