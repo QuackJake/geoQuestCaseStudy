@@ -1,27 +1,14 @@
-<template>
-  <div class="min-h-screen bg-background text-foreground">
-    <HeaderSection @scrollTo="scrollTo" />
-    <main>
-      <HeroSection @scrollTo="scrollTo" />
-      <ProcessSection :processSteps="processSteps" />
-      <DesignSection :designFeatures="designFeatures" />
-      <ConclusionSection :metrics="metrics" />
-    </main>
-    <FooterSection />
-  </div>
-</template>
-
 <script setup>
-import HeaderSection from './components/HeaderSection.vue'
-import HeroSection from './components/HeroSection.vue'
-import ProcessSection from './components/ProcessSection.vue'
-import DesignSection from './components/DesignSection.vue'
-import ConclusionSection from './components/ConclusionSection.vue'
-import FooterSection from './components/FooterSection.vue'
-
-import processSteps from './data/processSteps.js'
-import designFeatures from './data/designFeatures.js'
-import metrics from './data/metrics.js'
+import Header from './components/Header.vue'
+import Introduction from './components/Introduction.vue'
+import Research from './components/Research.vue'
+import Design from './components/Design.vue'
+import WireframeGallery from './components/galleries/WireframeGallery.vue'
+import UserTesting from './components/UserTesting.vue'
+import FinalProduct from './components/FinalProduct.vue'
+import PrototypeGallery from './components/galleries/PrototypeGallery.vue'
+import Reflection from './components/Reflection.vue'
+import Footer from './components/Footer.vue'
 
 const scrollTo = (id) => {
   const el = document.getElementById(id)
@@ -30,3 +17,20 @@ const scrollTo = (id) => {
   }
 }
 </script>
+
+<template>
+  <div class="min-h-screen bg-background text-foreground">
+    <Header @scrollTo="scrollTo" />
+    <main>
+      <Introduction @scrollTo="scrollTo" />
+      <Research />
+      <Design   />
+      <WireframeGallery />
+      <UserTesting />
+      <FinalProduct />
+      <PrototypeGallery />
+      <Reflection />
+    </main>
+    <Footer />
+  </div>
+</template>
