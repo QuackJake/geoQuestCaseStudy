@@ -17,7 +17,7 @@
           <div class="w-full md:w-1/2">
             <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
               <img 
-                src="../assets/CindyLee.png" 
+                src="../assets/cindyLee.png" 
                 alt="User Persona Illustration" 
                 class="object-cover w-full h-full"
               />
